@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: video-streaming-service
+spec:
+  selector:
+      pod: video-streaming
+  ports:
+    - protocol: TCP
+      port: 8000         # The port, the service listens on.
+      targetPort: 3000   # The port, the traffic is sent to on the Pod.
+  type: LoadBalancer

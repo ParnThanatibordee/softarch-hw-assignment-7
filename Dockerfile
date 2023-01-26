@@ -5,4 +5,5 @@ COPY package*.json ./
 RUN npm install --only=production
 COPY ./src ./src
 COPY ./videos ./videos
+EXPOSE 8080
 CMD npm start

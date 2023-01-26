@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: video-streaming
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      pod: video-streaming
+  template:
+    metadata:
+      labels:
+        pod: video-streaming
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+        - name: video-streaming
+          image: ptvs1.azurecr.io/video-streaming-exposed
+          ports: 
+            - containerPort: 3000
